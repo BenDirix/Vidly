@@ -10,9 +10,18 @@ namespace Vidly.Controllers
 {
     public class MoviesController : Controller
     {
+        private IEnumerable<Movie> GetMovies()
+        {
+            return new List<Movie>
+            {
+                new Movie{Name = "Shrek"},
+                new Movie{Name = "Wall-e"}
+            };
+        }
         // GET: Movies/Random
         public ActionResult Random()
         {
+
             Movie movie = new Movie() { Name = "Shrek" };
             List<Customer> customers = new List<Customer>
             {
@@ -39,14 +48,11 @@ namespace Vidly.Controllers
         }
 
         //GET: Movies
-        public ActionResult Index(int? pageIndex, string sortBy)
+        public ActionResult Index()
         {
-            if(!pageIndex.HasValue)
-                pageIndex = 1;
-            if(string.IsNullOrWhiteSpace(sortBy))
-                sortBy = "Name";
+            var movies = GetMovies();
 
-            return Content($"pageIndex={pageIndex}&sortBy={sortBy}");
+            return View(movies);
         }
 
         [Route("movies/released/{year}/{month:regex(\\d{2}):range(1,12)}")]
