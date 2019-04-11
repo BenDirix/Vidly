@@ -13,6 +13,7 @@ namespace Vidly.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Name = c.String(),
+                        IsSubscribedToNewsLetter = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
