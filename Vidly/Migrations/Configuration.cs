@@ -12,7 +12,7 @@ namespace Vidly.Migrations
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(Vidly.Models.ApplicationDbContext context)
+        protected override void Seed(Models.ApplicationDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 
