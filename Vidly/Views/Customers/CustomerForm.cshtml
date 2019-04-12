@@ -1,9 +1,9 @@
-﻿@model Vidly.ViewModels.NewCustomerViewModel
+﻿@model Vidly.ViewModels.CustomerFormViewModel
 @{
     ViewBag.Title = "New";
 }
 
-<h2>New Customer</h2>
+<h2>Edit Customer</h2>
 
 @using(Html.BeginForm("Create", "Customers"))
 {
@@ -13,16 +13,18 @@
     </diV>
     <diV class="form-group">
         @Html.LabelFor(m => m.Customer.BirthDate)
-        @Html.TextBoxFor(m => m.Customer.BirthDate, new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.Customer.BirthDate, "{0: dd/MM/yyyy}", new { @class = "form-control" })
     </diV>
+
+    <diV class="form-group">
+        @Html.LabelFor(m => m.Customer.MembershipTypeId)
+        @Html.DropDownListFor(m => m.Customer.MembershipTypeId, new SelectList(Model.MembershipTypes, "Id", "Name"), "Select Membership Type", new { @class = "form-control" })
+    </diV>
+
     <diV class="checkbox">
         <label>
             @Html.CheckBoxFor(m => m.Customer.IsSubscribedToNewsLetter) Subscribe to newsletter
         </label>
-    </diV>
-    <diV class="form-group">
-        @Html.LabelFor(m => m.Customer.MembershipTypeId)
-        @Html.DropDownListFor(m => m.Customer.MembershipTypeId, new SelectList(Model.MembershipTypes,"Id", "Name"),"Select Membership Type", new { @class = "form-control" })
     </diV>
 
     <button type="submit" class="btn btn-primary">Save</button>
