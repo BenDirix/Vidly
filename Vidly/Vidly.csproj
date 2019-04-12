@@ -207,9 +207,30 @@
     <Compile Include="Migrations\201904120907433_AddBirthDateToCustomer.Designer.cs">
       <DependentUpon>201904120907433_AddBirthDateToCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904120924455_AddGenreForMovies.cs" />
+    <Compile Include="Migrations\201904120924455_AddGenreForMovies.Designer.cs">
+      <DependentUpon>201904120924455_AddGenreForMovies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904120928015_ChangedMovieGenreFromStringToGenre.cs" />
+    <Compile Include="Migrations\201904120928015_ChangedMovieGenreFromStringToGenre.Designer.cs">
+      <DependentUpon>201904120928015_ChangedMovieGenreFromStringToGenre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904120930133_PopulateGenres.cs" />
+    <Compile Include="Migrations\201904120930133_PopulateGenres.Designer.cs">
+      <DependentUpon>201904120930133_PopulateGenres.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904121002087_AddRequiredToGenreInMovie.cs" />
+    <Compile Include="Migrations\201904121002087_AddRequiredToGenreInMovie.Designer.cs">
+      <DependentUpon>201904121002087_AddRequiredToGenreInMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904121004509_AddExtraPropertiesMovie.cs" />
+    <Compile Include="Migrations\201904121004509_AddExtraPropertiesMovie.Designer.cs">
+      <DependentUpon>201904121004509_AddExtraPropertiesMovie.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
@@ -288,6 +309,7 @@
     <Content Include="Views\Movies\Index.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Customers\Details.cshtml" />
+    <Content Include="Views\Movies\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -321,6 +343,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904120907433_AddBirthDateToCustomer.resx">
       <DependentUpon>201904120907433_AddBirthDateToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904120924455_AddGenreForMovies.resx">
+      <DependentUpon>201904120924455_AddGenreForMovies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904120928015_ChangedMovieGenreFromStringToGenre.resx">
+      <DependentUpon>201904120928015_ChangedMovieGenreFromStringToGenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904120930133_PopulateGenres.resx">
+      <DependentUpon>201904120930133_PopulateGenres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904121002087_AddRequiredToGenreInMovie.resx">
+      <DependentUpon>201904121002087_AddRequiredToGenreInMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904121004509_AddExtraPropertiesMovie.resx">
+      <DependentUpon>201904121004509_AddExtraPropertiesMovie.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
