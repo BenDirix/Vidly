@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Vidly.Models;
+using System.Data.Entity;
 
 namespace Vidly.Controllers
 {
@@ -30,7 +31,7 @@ namespace Vidly.Controllers
             //var customers = GetCustomers();
 
             // ToList will make the query immediately executed
-            var customers = _dbContext.Customers.ToList();
+            var customers = _dbContext.Customers.Include(c => c.MembershipType).ToList();
             return View(customers);
         }
 
