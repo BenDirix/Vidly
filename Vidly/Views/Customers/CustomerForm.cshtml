@@ -5,8 +5,10 @@
 
 <h2>Edit Customer</h2>
 
-@using(Html.BeginForm("Create", "Customers"))
+@using(Html.BeginForm("Save", "Customers"))
 {
+    @Html.HiddenFor(m => m.Customer.Id);
+
     <diV class="form-group">
         @Html.LabelFor(m => m.Customer.Name)
         @Html.TextBoxFor(m => m.Customer.Name, new { @class = "form-control" })
@@ -26,6 +28,8 @@
             @Html.CheckBoxFor(m => m.Customer.IsSubscribedToNewsLetter) Subscribe to newsletter
         </label>
     </diV>
+
+
 
     <button type="submit" class="btn btn-primary">Save</button>
 }
