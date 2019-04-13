@@ -14,10 +14,12 @@ namespace Vidly.Controllers
     public class MoviesController : Controller
     {
         private ApplicationDbContext _dbContext;
-        public MoviesController(){
+        public MoviesController()
+        {
             _dbContext = new ApplicationDbContext();
         }
-        protected override void Dispose(bool disposing){
+        protected override void Dispose(bool disposing)
+        {
             _dbContext.Dispose();
         }
 
@@ -37,10 +39,6 @@ namespace Vidly.Controllers
                 Movie = movie,
                 Customers = customers
             };
-
-
-            //ViewData["Movie"] = movie;
-            //ViewBag.Movie = movie;
 
             return View(movieViewModel);
         }
@@ -66,9 +64,11 @@ namespace Vidly.Controllers
             return Content($"{year}/{month}");
         }
 
-        public ActionResult New(){
+        public ActionResult New()
+        {
             var genres = _dbContext.Genres.ToList();
-            var movieViewModel = new MovieFormViewModel{
+            var movieViewModel = new MovieFormViewModel
+            {
                 Genres = genres,
             };
             return View("MovieForm", movieViewModel);
@@ -77,7 +77,6 @@ namespace Vidly.Controllers
         [HttpPost]
         public ActionResult Save(Movie movie)
         {
-            
             if(movie.Id == 0)
             {
                 movie.DateAdded = DateTime.Today;
@@ -91,9 +90,8 @@ namespace Vidly.Controllers
                 movieInDb.ReleaseDate = movie.ReleaseDate;
                 movieInDb.NumberInStock = movie.NumberInStock;
             }
-            
-            _dbContext.SaveChanges(); 
 
+            _dbContext.SaveChanges();
 
             return RedirectToAction("Index", "Movies");
         }
@@ -103,8 +101,8 @@ namespace Vidly.Controllers
             var movie = _dbContext.Movies.SingleOrDefault(m => m.Id == id);
             if(movie == null)
                 return HttpNotFound();
-            var movieViewModel = new MovieFormViewModel { Movie = movie, Genres = _dbContext.Genres.ToList() };
 
+            var movieViewModel = new MovieFormViewModel { Movie = movie, Genres = _dbContext.Genres.ToList() };
             return View("MovieForm", movieViewModel);
         }
     }
