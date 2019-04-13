@@ -9,6 +9,8 @@
 @using(Html.BeginForm("Save", "Customers"))
 {
     @Html.HiddenFor(m => m.Customer.Id);
+    @Html.AntiForgeryToken();
+
     @Html.ValidationSummary(true, "Please fix the following error(s): ");
 
     <div class="form-group">
@@ -28,8 +30,6 @@
         @Html.TextBoxFor(m => m.Customer.BirthDate, "{0: dd/MM/yyyy}", new { @class = "form-control" })
         @Html.ValidationMessageFor(m => m.Customer.BirthDate)
     </div>
-
-
 
     <div class="checkbox">
         <label>
