@@ -5,14 +5,7 @@
 
     ViewBag.Title = "MovieForm";
 }
-@if(Model.Movie != null)
-{
-    <h2>Edit Movie</h2>
-}
-else
-{
-    <h2>New Movie</h2>
-}
+<h2>@Model.Title</h2>
 
 @using(Html.BeginForm("Save", "Movies"))
 {
