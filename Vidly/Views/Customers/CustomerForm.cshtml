@@ -8,10 +8,10 @@
 
 @using(Html.BeginForm("Save", "Customers"))
 {
-    @Html.HiddenFor(m => m.Customer.Id);
-    @Html.AntiForgeryToken();
+    @Html.HiddenFor(m => m.Customer.Id)
+    @Html.AntiForgeryToken()
 
-    @Html.ValidationSummary(true, "Please fix the following error(s): ");
+    @Html.ValidationSummary(true, "Please fix the following error(s): ")
 
     <div class="form-group">
         @Html.LabelFor(m => m.Customer.Name)
