@@ -26,8 +26,8 @@ namespace Vidly.Controllers
         public ActionResult Index()
         {
             // ToList will make the query immediately executed
-            var customers = _dbContext.Customers.Include(c => c.MembershipType).ToList();
-            return View(customers);
+            //var customers = _dbContext.Customers.Include(c => c.MembershipType).ToList();
+            return View();
         }
 
         public ActionResult Details(int id)
