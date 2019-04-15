@@ -1,0 +1,40 @@
+﻿@model List<Vidly.Models.Movie>
+@{
+    ViewBag.Title = "Movies";
+}
+
+<h2>Movies</h2>
+
+    <table id="movies" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                <th>Movie</th>
+                <th>Genre</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>        
+    </table>
+
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            let table = $("#movies").DataTable({
+                ajax: {
+                    url: "/api/movies",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "name",
+                    },
+                    {
+                        data: "genre.name" // Placeholder for genre.Name
+                    },
+                ]
+            });
+        });
+    </script>
+}
+
