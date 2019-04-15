@@ -258,6 +258,10 @@
     <Compile Include="Migrations\201904122015335_NullableDateTimesInMovie.Designer.cs">
       <DependentUpon>201904122015335_NullableDateTimesInMovie.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904151317071_SeedUsers.cs" />
+    <Compile Include="Migrations\201904151317071_SeedUsers.Designer.cs">
+      <DependentUpon>201904151317071_SeedUsers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -638,6 +642,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904122015335_NullableDateTimesInMovie.resx">
       <DependentUpon>201904122015335_NullableDateTimesInMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904151317071_SeedUsers.resx">
+      <DependentUpon>201904151317071_SeedUsers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
