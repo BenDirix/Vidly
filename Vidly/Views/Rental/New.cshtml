@@ -6,11 +6,53 @@
 <form>
     <div class="form-group">
         <label>Customer</label>
-        <input type="text" class="form-control"/>
+        <input id="customer" type="text" class="form-control"/>
     </div>   
     <div class="form-group">
         <label>Movie</label>
-        <input type="text" class="form-control" name="name" value="" />
+        <input id="movies" type="text" class="form-control" name="name" value="" />
     </div>
     <button class="btn btn-primary">Rent</button>
 </form>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            let viewModel = {};
+
+            let customers = new Bloodhound({
+                datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+                queryTokenizer: Bloodhound.tokenizers.whitespace,
+                //prefetch: '../data/films/post_1960.json',
+                remote: {
+                    url: '/api/customers?query=%QUERY',
+                    wildcard: '%QUERY'
+                }
+            });
+
+            $('#customer').typeahead({ highlight: true }, {
+                name: 'customers',
+                display: 'name',
+                source: customers
+            }).on("typeahead:select", function (event, customer) {
+                viewModel.customerId = customer.id;
+            });
+
+            let movies = new Bloodhound({
+                datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+                queryTokenizer: Bloodhound.tokenizers.whitespace,
+                //prefetch: '../data/films/post_1960.json',
+                remote: {
+                    url: '/api/movies?query=%QUERY',
+                    wildcard: '%QUERY'
+                }
+            });
+
+            $('#movies').typeahead({ highlight: true }, {
+                name: 'movies',
+                display: 'name',
+                source: movies
+            })
+        })
+    </script>
+}
