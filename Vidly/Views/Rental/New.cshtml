@@ -6,14 +6,24 @@
 <form>
     <div class="form-group">
         <label>Customer</label>
-        <input id="customer" type="text" class="form-control"/>
+        <div class="tt-container">
+            <input id="customer" type="text" class="form-control"/>
+        </div>
     </div>   
     <div class="form-group">
         <label>Movie</label>
-        <input id="movies" type="text" class="form-control" name="name" value="" />
+        <div class="tt-container">
+            <input id="movies" type="text" class="form-control" name="name" value="" />
+        </div>
     </div>
-    <ul id="movieList" class="list-group">        
-    </ul>
+    <div class="row">
+        <div class="col-md-3 col-sm-4">
+            <ul id="movieList" class="list-group">
+            </ul>
+        </div>
+        
+    </div>
+    
     <button class="btn btn-primary">Rent</button>
 </form>
 
