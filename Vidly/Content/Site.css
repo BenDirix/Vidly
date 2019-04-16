@@ -26,7 +26,8 @@ textarea {
 .field-validation-error{
     color: red;
 }
-.input-validation-error{
+.input-validation-error,
+input.error{
     border: 2px solid red;
 }
 
@@ -36,4 +37,11 @@ textarea {
 
 .margin-bottom-20{
     margin-bottom: 20px;
+}
+
+.error{
+    color: red;
+}
+#-error{
+    display:none !important;
 }
