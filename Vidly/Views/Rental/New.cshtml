@@ -3,7 +3,7 @@
 }
 
 <h2>New Rental Form</h2>
-<form>
+<form id="newRentalForm">
     <div class="form-group">
         <label>Customer</label>
         <div class="tt-container">
@@ -30,7 +30,9 @@
 @section scripts{
     <script>
         $(document).ready(function () {
-            let viewModel = {movieIds:[],};
+            let viewModel = { movieIds: [], };
+
+            $("#customer").on("")
 
             let customers = new Bloodhound({
                 datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
@@ -47,7 +49,10 @@
                 display: 'name',
                 source: customers
             }).on("typeahead:select", function (event, customer) {
+                viewModel.movieIds.length = 0;
+                console.log(viewModel.movieIds)
                 viewModel.customerId = customer.id;
+                $(".list-group-item").remove();                
             });
 
             let movies = new Bloodhound({
@@ -67,8 +72,22 @@
             }).on("typeahead:select", function (event, movie) {
                 console.log(movie.name);
                 $("#movieList").append('<li class = "list-group-item">' + movie.name + '</li>')
-                $("#movie").typeahead("val", "");
+                $("#movies").typeahead("val", "");
                 viewModel.movieIds.push(movie.id);
+            });
+
+            $("#newRentalForm").submit(function (event) {
+                event.preventDefault();
+
+                $.ajax({
+                    url: "/api/NewRentals",
+                    method: "post",
+                    data: viewModel
+                }).done(function () {
+                    console.log("done");
+                    }).fail(function () {
+                        console.log("failed")
+                });
             })
         })
     </script>

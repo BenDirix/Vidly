@@ -16,7 +16,7 @@ namespace Vidly.Controllers.Api
         {
             _dbContext = new ApplicationDbContext();
         }
-        // Get /api/customers
+        // Get /api/newRentals
         [HttpPost]
         public IHttpActionResult CreateNewRentals(NewRentalDto newRental){
             if(newRental.MovieIds.Count == 0)
@@ -42,7 +42,7 @@ namespace Vidly.Controllers.Api
                 _dbContext.Rentals.Add(rental);
             }
             _dbContext.SaveChanges();
-            return Ok();
+            return Ok("");
         }
     }
 }

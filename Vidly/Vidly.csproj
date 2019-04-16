@@ -277,6 +277,10 @@
     <Compile Include="Migrations\201904161530538_PopulateCustomers.Designer.cs">
       <DependentUpon>201904161530538_PopulateCustomers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904161705479_PopulateMovies.cs" />
+    <Compile Include="Migrations\201904161705479_PopulateMovies.Designer.cs">
+      <DependentUpon>201904161705479_PopulateMovies.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -680,6 +684,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904161530538_PopulateCustomers.resx">
       <DependentUpon>201904161530538_PopulateCustomers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904161705479_PopulateMovies.resx">
+      <DependentUpon>201904161705479_PopulateMovies.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
