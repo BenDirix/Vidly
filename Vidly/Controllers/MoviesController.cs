@@ -44,6 +44,7 @@ namespace Vidly.Controllers
         }
 
         //GET: Movies
+        [AllowAnonymous]
         public ActionResult Index()
         {
             if(User.IsInRole(RoleName.CanManageMovies))
