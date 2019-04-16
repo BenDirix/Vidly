@@ -7,13 +7,13 @@
     <div class="form-group">
         <label>Customer</label>
         <div class="tt-container">
-            <input id="customer" required type="text" class="form-control"  data-rule-validCustomer="true"/>
+            <input id="customer" name="customer" required type="text" class="form-control"  data-rule-validCustomer="true"/>
         </div>
     </div>   
     <div class="form-group">
         <label>Movie</label>
         <div class="tt-container">
-            <input id="movies" type="text" class="form-control" name="name" value="" />
+            <input id="movies" type="text" class="form-control" name="movie" value="" />
         </div>
     </div>
     <div class="row">
@@ -52,7 +52,7 @@
                 viewModel.movieIds.length = 0;
                 console.log(viewModel.movieIds)
                 viewModel.customerId = customer.id;
-                $(".list-group-item").remove();                
+                $("#movieList").empty();                
             });
 
             let movies = new Bloodhound({
@@ -76,7 +76,7 @@
                 viewModel.movieIds.push(movie.id);
             });
 
-            $.validator.addMethod("validCustomer", function () {
+            let validator = $.validator.addMethod("validCustomer", function () {
                 return viewModel.customerId && viewModel.customerId !== 0;
             }, "Please Select a valid customer");
 
@@ -90,6 +90,12 @@
                         data: viewModel
                     }).done(function () {
                         toastr.success("Rentals successfully recorded.")
+                        $("#movies").typeahead("val", "");
+                        $("#customer").typeahead("val", "");
+                        $("#movieList").empty();
+                        viewModel.movieIds = [];
+
+                        validator.resetForm();
                     }).fail(function () {
                         toastr.error("Something unexpected happened");
                     });
