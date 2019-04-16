@@ -186,6 +186,8 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Api\CustomersController.cs" />
+    <Compile Include="Controllers\Api\NewRentalsController.cs" />
+    <Compile Include="Controllers\RentalController.cs" />
     <Compile Include="Dtos\GenreDto.cs" />
     <Compile Include="Dtos\MembershipTypeDto.cs" />
     <Compile Include="Controllers\Api\MoviesController.cs" />
@@ -195,6 +197,7 @@
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Dtos\CustomerDto.cs" />
     <Compile Include="Dtos\MovieDto.cs" />
+    <Compile Include="Dtos\NewRentalDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -262,6 +265,14 @@
     <Compile Include="Migrations\201904151317071_SeedUsers.Designer.cs">
       <DependentUpon>201904151317071_SeedUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904161334004_AddRental.cs" />
+    <Compile Include="Migrations\201904161334004_AddRental.Designer.cs">
+      <DependentUpon>201904161334004_AddRental.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904161436217_AddNumberAvailableToMovie.cs" />
+    <Compile Include="Migrations\201904161436217_AddNumberAvailableToMovie.Designer.cs">
+      <DependentUpon>201904161436217_AddNumberAvailableToMovie.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -271,6 +282,7 @@
     <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Min18YearsIfAMember.cs" />
     <Compile Include="Models\Movie.cs" />
+    <Compile Include="Models\Rental.cs" />
     <Compile Include="Models\RoleName.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -590,6 +602,7 @@
     <Content Include="Views\Customers\CustomerForm.cshtml" />
     <Content Include="Views\Movies\MovieForm.cshtml" />
     <Content Include="Views\Movies\ReadOnlyList.cshtml" />
+    <Content Include="Views\Rental\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -647,6 +660,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904151317071_SeedUsers.resx">
       <DependentUpon>201904151317071_SeedUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904161334004_AddRental.resx">
+      <DependentUpon>201904161334004_AddRental.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904161436217_AddNumberAvailableToMovie.resx">
+      <DependentUpon>201904161436217_AddNumberAvailableToMovie.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
